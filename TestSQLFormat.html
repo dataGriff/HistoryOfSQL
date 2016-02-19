@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SQL Code Test</title>
+		<style style="text\css">
+		.tsql{
+		font-family: "Courier New", courier, monospace;
+		line-height: 1.2em;
+		}
+		[class^="keyword"]{
+			text-transform: uppercase;
+		}
+		.keyword1 {
+		color: blue;
+		}
+		.keyword2 {
+		color: pink;
+		}
+		.keyword3 {
+		color: grey;
+		}
+		.inquotes {
+		color: red;
+		}
+		.comment{
+		color:green;}
+		.normal {
+		line-height: 0.1em;
+		color: black;
+		text-indent: 9999px;
+		}
+
+		</style>
+	</head>
+
+	<body class="tsql">
+	<span class="comment">--Here is some test SQL</span><br>
+	<span class="keyword1">select</span><br>
+	<span class="normal">code,<br>description</span><br>
+	<span class="keyword1">from</span> <br>
+	<span class="normal">[dbo].[table]</span><br>
+	<span class="keyword1">where</span><br>
+	<span class="normal">[code] = 45</span><br>
+	<span class="keyword3">and</span><br>
+	<span class="normal">[description] = </span>	
+	<span class="inquotes">'hello'</span><br>
+	</body>
+</html>

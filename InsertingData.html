@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Inserting Data</title>
+		<link href="css/sqlcss.css" type="text/css"
+		rel="stylesheet"/>
+	
+	</head>
+
+	<body>
+	<h2>Inserting Data</h2>
+	<h3>Below is the template code for inserting data into table using SQL.</h3>
+	<div class="tsql">
+		<span class="comment">--This is a comment before inserting data</span><br>
+		<span class="keyword1">USE</span> [DatabaseName];<br>
+		<span class="keyword1">GO</span><br><br>
+		<span class="keyword1">INSERT INTO </span> [SchemaName].[TableName]<br>
+		<span class="keyword3">(</span>
+		<span class="normal">[ColumnA],[ColumnB],[ColumnC]</span>
+		<span class="keyword3">)</span><br>
+		<span class="keyword1">VALUES</span><br>
+		<span class="keyword3">(</span>
+		<span class="inquotes">'A'</span><span class="keyword3">,</span>
+		<span class="normal">1</span><span class="keyword3">,</span>
+		<span class="inquotes">'2015-04-01'</span><span class="keyword3">),</span><br>
+		<span class="keyword3">(</span>
+		<span class="inquotes">'B'</span><span class="keyword3">,</span>
+		<span class="normal">2</span><span class="keyword3">,</span>
+		<span class="inquotes">'2015-04-02'</span><span class="keyword3">),</span><br>
+		<span class="keyword3">(</span>
+		<span class="inquotes">'C'</span><span class="keyword3">,</span>
+		<span class="normal">3</span><span class="keyword3">,</span>
+		<span class="inquotes">'2015-04-03'</span><span class="keyword3">);</span><br>
+		
+	
+	</div>
+	<h3>The template shows...</h3>
+	<ul>
+		<li>It is best practice to state the names of the columns you are going to insert into the table.</li>
+		<li>Dates and characters need to be inquotes but integers do not need to be.</li>
+		<li>Each value should be seperated by a comma.</li>
+		<li>Each row inserted should be contained within brackets and seperated by commas.</li>
+	</ul>
+	
+	<h3>Lets insert data into our user defined table...</h3>
+	
+	<div class="tsql">
+		<span class="keyword1">USE</span> [dktest];<br>
+		<span class="keyword1">GO</span><br><br>
+		<span class="keyword1">INSERT INTO </span> [import].[PoundDogs]<br>
+		<span class="keyword3">(</span>
+		<span class="normal">[DogName], [DogBreed], [DogColour], [DogAgeYears], [DateArrived], [TimeArrived]</span>
+		<span class="keyword3">)</span><br>
+		<span class="keyword1">VALUES</span><br>
+		<span class="keyword3">(</span>
+		<span class="inquotes">'Fido'</span><span class="keyword3">,</span>
+		<span class="inquotes">'Bull Mastif'</span><span class="keyword3">,</span>
+		<span class="inquotes">'Brown'</span><span class="keyword3">,</span>
+		<span class="normal">2</span><span class="keyword3">,</span>
+		<span class="inquotes">'2015-08-01'</span><span class="keyword3">,</span>
+		<span class="inquotes">'09:30'</span><span class="keyword3">),</span><br>
+	</div>
+	
+<div class="tsql">
+<span class="keyword1">USE</span>  dkTest<span class="keyword3">;</span> 
+<br> <span class="keyword1">GO</span> 
+<br> 
+<br> <span class="keyword1">INSERT</span>  <span class="keyword1">INTO</span>  import.PoundDogs
+<br> <span class="keyword3">(</span> 
+<br> [DogName]<span class="keyword3">,</span>  [DogBreed]<span class="keyword3">,</span>  [DogColour]<span class="keyword3">,</span>  [DogAgeYears]<span class="keyword3">,</span>  [DateArrived]<span class="keyword3">,</span>  [TimeArrived]
+<br> <span class="keyword3">)</span> 
+<br> <span class="keyword1">VALUES</span> <span class="keyword3">(</span> <span class="inquotes">'Fido'</span><span class="keyword3">,</span> <span class="inquotes">'Bull Mastif'</span><span class="keyword3">,</span> <span class="inquotes">'Brown'</span><span class="keyword3">,</span> 2<span class="keyword3">,</span> <span class="inquotes">'2015-08-01'</span><span class="keyword3">,</span> <span class="inquotes">'09:30'</span><span class="keyword3">)</span> <span class="keyword3">,</span> 
+<br> <span class="keyword3">(</span> <span class="inquotes">'Mindy'</span><span class="keyword3">,</span> <span class="inquotes">'Labrador'</span><span class="keyword3">,</span> <span class="inquotes">'White'</span><span class="keyword3">,</span> 3<span class="keyword3">,</span> <span class="inquotes">'2015-07-31'</span><span class="keyword3">,</span> <span class="inquotes">'16:30'</span><span class="keyword3">)</span> <span class="keyword3">,</span> 
+<br> <span class="keyword3">(</span> <span class="inquotes">'Bronson'</span><span class="keyword3">,</span> <span class="inquotes">'Yorkshire Terrier'</span><span class="keyword3">,</span> <span class="inquotes">'Brown & Tan'</span><span class="keyword3">,</span> 15<span class="keyword3">,</span> <span class="inquotes">'2015-07-30'</span><span class="keyword3">,</span> <span class="inquotes">'08:00'</span><span class="keyword3">)</span> <span class="keyword3">,</span> 
+<br> <span class="keyword3">(</span> <span class="inquotes">'Baxter'</span><span class="keyword3">,</span> <span class="inquotes">'Jack Russel'</span><span class="keyword3">,</span> <span class="inquotes">'White & Brown'</span><span class="keyword3">,</span> 8<span class="keyword3">,</span> <span class="inquotes">'2015-08-02'</span><span class="keyword3">,</span> <span class="inquotes">'13:15'</span><span class="keyword3">)</span> <span class="keyword3">,</span> 
+<br> <span class="keyword3">(</span> <span class="inquotes">'Terry'</span><span class="keyword3">,</span> <span class="inquotes">'Staffordshire Bull Terrier'</span><span class="keyword3">,</span> <span class="inquotes">'Blue'</span><span class="keyword3">,</span> 4<span class="keyword3">,</span> <span class="inquotes">'2015-07-30'</span><span class="keyword3">,</span> <span class="inquotes">'14:00'</span><span class="keyword3">)</span> <span class="keyword3">,</span> 
+<br> <span class="keyword3">(</span> <span class="inquotes">'Sally'</span><span class="keyword3">,</span> <span class="inquotes">'Staffordshire Bull Terrier'</span><span class="keyword3">,</span> <span class="inquotes">'White'</span><span class="keyword3">,</span> 6<span class="keyword3">,</span> <span class="inquotes">'2015-07-29'</span><span class="keyword3">,</span> <span class="inquotes">'08:00'</span><span class="keyword3">)</span> <span class="keyword3">,</span> 
+<br> <span class="keyword3">(</span> <span class="inquotes">'Fido'</span><span class="keyword3">,</span> <span class="inquotes">'Staffordshire Bull Terrier'</span><span class="keyword3">,</span> <span class="inquotes">'White'</span><span class="keyword3">,</span> 6<span class="keyword3">,</span> <span class="inquotes">'2015-07-30'</span><span class="keyword3">,</span> <span class="inquotes">'13:30'</span><span class="keyword3">)</span> <span class="keyword3">,</span> 
+<br> <span class="keyword3">(</span> <span class="inquotes">'Harvey'</span><span class="keyword3">,</span> <span class="inquotes">'German Shephered'</span><span class="keyword3">,</span> <span class="inquotes">'White'</span><span class="keyword3">,</span> 13<span class="keyword3">,</span> <span class="inquotes">'2015-08-01'</span><span class="keyword3">,</span> <span class="inquotes">'15:15'</span><span class="keyword3">)</span> <span class="keyword3">,</span> 
+<br> <span class="keyword3">(</span> <span class="inquotes">'Sherlock'</span><span class="keyword3">,</span> <span class="inquotes">'American Bulldog'</span><span class="keyword3">,</span> <span class="inquotes">'White & Brown'</span><span class="keyword3">,</span> 6<span class="keyword3">,</span> <span class="inquotes">'2015-08-01'</span><span class="keyword3">,</span> <span class="inquotes">'15:15'</span><span class="keyword3">)</span> <span class="keyword3">,</span> 
+<br> <span class="keyword3">(</span> <span class="inquotes">'Vinny'</span><span class="keyword3">,</span> <span class="inquotes">'Jack Russel'</span><span class="keyword3">,</span> <span class="inquotes">'White & Brown'</span><span class="keyword3">,</span> 1<span class="keyword3">,</span> <span class="inquotes">'2015-08-02'</span><span class="keyword3">,</span> <span class="inquotes">'09:45'</span><span class="keyword3">)</span> <span class="keyword3">,</span> 
+<br> <span class="keyword3">(</span> <span class="inquotes">'Rosie'</span><span class="keyword3">,</span> <span class="inquotes">'German Shephered'</span><span class="keyword3">,</span> <span class="inquotes">'Brown & Black'</span><span class="keyword3">,</span> 5<span class="keyword3">,</span> <span class="inquotes">'2015-08-02'</span><span class="keyword3">,</span> <span class="inquotes">'13:15'</span><span class="keyword3">)</span> <span class="keyword3">;</span> 
+<br> 
+</div>
+
+
+
+	
+	</body>
+</html>

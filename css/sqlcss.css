@@ -1,0 +1,46 @@
+	body{
+	background-color: #FFD373;
+	font-family: "Arial", arial, sans-serif;
+	font-size: 18px;
+	line-height: 1.4em;}
+		div {
+		height: 100px;
+		width: 500px;}
+	table{
+	background-color: white;
+	margin: 20px;}
+	th, td{
+	padding: 5px 5px 5px 5px;}
+	th{
+	background-color: grey;}
+	tr:hover{
+	background-color: yellow;}
+	.tsql{
+		font-family: "Courier New", courier, monospace;
+		line-height: 1.2em;
+		background-color: white;
+		border-style: inset;
+		padding: 10px;
+		}
+		[class^="keyword"]{
+			text-transform: uppercase;
+		}
+		.keyword1 {
+		color: blue;
+		}
+		.keyword2 {
+		color: pink;
+		}
+		.keyword3 {
+		color: grey;
+		}
+		.inquotes {
+		color: red;
+		}
+		.comment{
+		color:green;}
+		.normal {
+		line-height: 0.1em;
+		color: black;
+		text-indent: 9999px;
+		}

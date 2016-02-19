@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Select Statement</title>
+		<link href="css/sqlcss.css" type="text/css"
+		rel="stylesheet"/>
+	
+	</head>
+
+	<body>
+	<h2>Select Statement</h2>
+	<h3>Below is the template code for a basic select statement in SQL.</h3>
+	<div class="tsql">
+		<span class="keyword1">USE</span>  DatabaseName<span class="keyword3">;</span> 
+		<br> <span class="keyword1">GO</span> 
+		<br> 
+		<br> <span class="keyword1">SELECT</span>  
+		<br> [ColumnA]<span class="keyword3">,</span>  [ColumnB]<span class="keyword3">,</span>  [ColumnC]
+		<br> <span class="keyword1">FROM</span>  [SchemaName].[TableName];
+		<br> 
+		<br>  
+	</div>
+
+	<h3>The template shows</h3>
+	<ul>
+		<li>The columns you want to retrieve go into your SELECT clause.</li>
+		<li>The object(s) that contain your columns go into your FROM clause.</li> 
+	</ul>
+	<h3>Lets create our first basic select statement from our PoundDogs...</h3>
+	<div class="tsql">
+		<span class="keyword1"> USE </span> dktest<span class="keyword3">;</span> 
+		<br> GO
+		<br> 
+		<br><span class="keyword1"> SELECT </span> 
+		<br> [PoundDogsID] <span class="keyword3">,</span> [FirstInserted] 
+		<br> <span class="keyword3">,</span> [DogName]<span class="keyword3">,</span>  [DogBreed]<span class="keyword3">,</span>  [DogColour]<span class="keyword3">,</span>  [DogAgeYears]<span class="keyword3">,</span>  [DateArrived]<span class="keyword3">,</span>  [TimeArrived]
+		<br> <span class="keyword1"> FROM </span> [import].[PoundDogs]<span class="keyword3">;</span> 
+		<br> 
+		<br> 
+	</div>
+	<table border="1"><tr><th>PoundDogsID</th><th>FirstInserted</th><th>DogName</th><th>DogBreed</th><th>DogColour</th><th>DogAgeYears</th><th>DateArrived</th><th>TimeArrived</th></tr><tr><td>1</td><td>2015-08-02T14:24:04.9200000</td><td>Fido</td><td>Bull Mastif</td><td>Brown</td><td>2</td><td>2015-08-01</td><td>09:30:00</td></tr><tr><td>2</td><td>2015-08-02T14:24:04.9200000</td><td>Mindy</td><td>Labrador</td><td>White</td><td>3</td><td>2015-07-31</td><td>16:30:00</td></tr><tr><td>3</td><td>2015-08-02T14:24:04.9200000</td><td>Bronson</td><td>Yorkshire Terrier</td><td>Brown &amp; Tan</td><td>15</td><td>2015-07-30</td><td>08:00:00</td></tr><tr><td>4</td><td>2015-08-02T14:24:04.9200000</td><td>Baxter</td><td>Jack Russel</td><td>White &amp; Brown</td><td>8</td><td>2015-08-02</td><td>13:15:00</td></tr><tr><td>5</td><td>2015-08-02T14:24:04.9200000</td><td>Terry</td><td>Staffordshire Bull Terrier</td><td>Blue</td><td>4</td><td>2015-07-30</td><td>14:00:00</td></tr><tr><td>6</td><td>2015-08-02T14:24:04.9200000</td><td>Sally</td><td>Staffordshire Bull Terrier</td><td>White</td><td>6</td><td>2015-07-29</td><td>08:00:00</td></tr><tr><td>7</td><td>2015-08-02T14:24:04.9200000</td><td>Fido</td><td>Staffordshire Bull Terrier</td><td>White</td><td>6</td><td>2015-07-30</td><td>13:30:00</td></tr><tr><td>8</td><td>2015-08-02T14:24:04.9200000</td><td>Harvey</td><td>German Shephered</td><td>White</td><td>13</td><td>2015-08-01</td><td>15:15:00</td></tr><tr><td>9</td><td>2015-08-02T14:24:04.9200000</td><td>Sherlock</td><td>American Bulldog</td><td>White &amp; Brown</td><td>6</td><td>2015-08-01</td><td>15:15:00</td></tr><tr><td>10</td><td>2015-08-02T14:24:04.9200000</td><td>Vinny</td><td>Jack Russel</td><td>White &amp; Brown</td><td>1</td><td>2015-08-02</td><td>09:45:00</td></tr><tr><td>11</td><td>2015-08-02T14:24:04.9200000</td><td>Rosie</td><td>German Shephered</td><td>Brown &amp; Black</td><td>5</td><td>2015-08-02</td><td>13:15:00</td></tr></table>
+	<h3>Which is equivalent to...</h3>
+	<div class="tsql">
+		<span class="keyword1">USE</span>  DatabaseName<span class="keyword3">;</span> 
+		<br> <span class="keyword1">GO</span> 
+		<br> 
+		<br> <span class="keyword1">SELECT</span>  *
+		<br>  <span class="keyword1">FROM</span>  [import].[PoundDogs]<span class="keyword3">;</span> 
+		<br> 
+		<br>  
+	</div>
+	
+	<p>The example shows us that using an asterisk in place of the columns will return all columns from the object(s) in the from clause. However tempting this may be do not
+	use this practice in production! Specify the columns you lazy dogs! If the column order changes it can really mess things up if you continue using the asterisk. Also... don't be greedy!
+	Taking only the columns you need is far more efficient. </p>
+	
+	<h3>Now we're going to restrict our output using the WHERE clause</h3>
+	
+	<p>This example restricts the result set by returning only those rows where value of the DogColour column is brown.</p>
+	<div class="tsql">
+		<span class="keyword1"> USE </span> dktest<span class="keyword3">;</span> 
+		<br> GO
+		<br> 
+		<br><span class="keyword1"> SELECT </span> 
+		<br> [DogName]<span class="keyword3">,</span>  [DogBreed]<span class="keyword3">,</span>   [DogAgeYears]
+		<br> <span class="keyword1"> FROM </span> [import].[PoundDogs]
+		<br> <span class="keyword1"> WHERE </span> [DogColour] <span class="keyword3">=</span>  <span class="inquotes">'Brown'</span><span class="keyword3">;</span> 
+		<br> 
+		<br>  
+	</div>
+	
+	<p>This example restricts the result set by returning only those rows where value of the DogColour contains the characters "brown".</p>
+	
+	<div class="tsql">
+		<span class="keyword1"> USE </span> dktest<span class="keyword3">;</span> 
+		<br> GO
+		<br> 
+		<br> <span class="keyword1"> SELECT </span> 
+		<br> [DogName]<span class="keyword3">,</span>  [DogBreed]<span class="keyword3">,</span>  [DogColour]
+		<br> <span class="keyword1"> FROM </span> [import].[PoundDogs]
+		<br> <span class="keyword1"> WHERE </span> [DogColour]<span class="keyword3"> LIKE </span> <span class="inquotes">'%Brown%'</span><span class="keyword3">;</span> 
+		<br> 
+		<br>  
+	</div>
+
+	<p>This example restricts the result set by returning only those rows where value of the DogColour is white and the value of DogBreed is Staffordshire Bull Terrier.</p>
+	
+	<div class="tsql">
+		<span class="keyword1"> USE </span> dktest<span class="keyword3">;</span> 
+		<br> GO
+		<br> 
+		<br><span class="keyword1"> SELECT </span> 
+		<br> [DogName]<span class="keyword3">,</span>   [DogAgeYears]<span class="keyword3">,</span>  [DateArrived]
+		<br> <span class="keyword1"> FROM </span> [import].[PoundDogs]
+		<br> <span class="keyword1"> WHERE </span> [DogColour] <span class="keyword3">=</span>  <span class="inquotes">'White'</span>
+		<br> <span class="keyword3"> AND </span> [DogBreed] <span class="keyword3">=</span>  <span class="inquotes">'Staffordshire Bull Terrier'</span><span class="keyword3">;</span> 
+		<br> 
+		<br>  
+	</div>
+
+	
+	<p>This example restricts the result set by returning only those rows where value of the DogColour is Brown or the value of DogBreed is Staffordshire Bull Terrier.</p>
+	
+	<div class="tsql">
+		<span class="keyword1"> USE </span> dktest<span class="keyword3">;</span> 
+		<br> GO
+		<br> 
+		<br> <span class="keyword1"> SELECT </span> 
+		<br> [DogName]<span class="keyword3">,</span>   [DogAgeYears]<span class="keyword3">,</span>  [DateArrived]<span class="keyword3">,</span>  [DogColour]<span class="keyword3">,</span>  [DogBreed]
+		<br> <span class="keyword1"> FROM </span> [import].[PoundDogs]
+		<br> <span class="keyword1"> WHERE </span> [DogColour] <span class="keyword3">=</span>  <span class="inquotes">'Brown'</span>
+		<br> <span class="keyword3"> OR </span> [DogBreed] <span class="keyword3">=</span>  <span class="inquotes">'Staffordshire Bull Terrier'</span><span class="keyword3">;</span> 
+		<br> 
+		<br>  
+	</div>
+
+	<p>This example restricts the result set by returning only those rows where the dog name is Mindy, Terry or Vinny.</p>
+		
+	<div class="tsql">
+		<span class="keyword1"> USE </span> dktest<span class="keyword3">;</span> 
+		<br> GO
+		<br> 
+		<br> <span class="keyword1"> SELECT </span> 
+		<br> [DogName]<span class="keyword3">,</span>  [DogBreed]<span class="keyword3">,</span>  [DogColour]<span class="keyword3">,</span>  [DogAgeYears]
+		<br> <span class="keyword1"> FROM </span> [import].[PoundDogs]
+		<br> <span class="keyword1"> WHERE </span> [DogName]<span class="keyword3">  IN  </span> <span class="keyword3">(</span> <span class="inquotes">'Mindy'</span><span class="keyword3">,</span> <span class="inquotes">'Terry'</span><span class="keyword3">,</span> <span class="inquotes">'Vinny'</span><span class="keyword3">)</span> <span class="keyword3">;</span> 
+		<br> 
+		<br>  
+	</div>
+
+	<p>What have we learned from our examples?</p>
+	<ul>
+		<li>You can restrict the rows returned using the WHERE clause.</li>
+		<li>The WHERE clause can contain logical conjugates AND and OR to combine predicates.</li>
+		<li>The WHERE clause can contain different operators for implementing criteria, =, LIKE and IN are the positive matching operators and <>, NOT LIKE, 
+		and NOT in are the negative matching operators.</li>
+		<li>You can restrict the columns returned by limiting the number of columns in the SELECT clause.</li>
+	</ul>
+
+	</body>
+</html>

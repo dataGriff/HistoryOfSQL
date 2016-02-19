@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Create Table</title>
+		<link href="css/sqlcss.css" type="text/css"
+		rel="stylesheet"/>
+	
+	</head>
+
+	<body>
+	<h2>Create Table</h2>
+	<h3>Below is the template code for creating a table in SQL.</h3>
+	<div class="tsql">
+		<span class="comment">--This is a comment before creating a table</span><br>
+		<span class="keyword1">USE</span> [DatabaseName];<br>
+		<span class="keyword1">GO</span><br><br>
+		<span class="keyword1">CREATE TABLE</span> [SchemaName].[TableName]<br>(</br>
+		<span class="normal">[ColumnA]</span> <span class="keyword1">VARCHAR</span><span class="keyword3">(</span><span class="normal">25</span><span class="keyword3">) NOT NULL</span> <br>
+		<span class="normal">,[ColumnB]</span> <span class="keyword1"> INT </span><span class="keyword3">NULL</span> <br>
+		<span class="normal">,[ColumnC]</span> <span class="keyword1"> DATE </span><span class="keyword3"> NULL</span> <br><span class="normal"> );</span> 
+	</div>
+	<h3>The template shows</h3>
+	<ul>
+		<li>You must state the schema name and table name after your create table statement. Although not mandatory you should always state the schema name 
+		otherwise the table name will be created in the default schema of dbo.</li>
+		<li>You must state the name of the first column and its data type.</li> 
+		<li>If the column data type is a character field you should state its length.</li>
+		<li>Although not mandatory , you should state whether the column allows NULLs or not, the default is NULL (which allows NULLs).</li>
+		<li>You then repeat these rules for adding extra columns seperated by a comma.</li>
+		<li>You can comment your code by adding two dashes <span class="comment">--</span> and some annotation.</li>
+	</ul>
+	<h3>Lets create our first user defined table...</h3>
+	<div class="tsql">
+		<span class="keyword1">USE</span> [dktest];<br>
+		<span class="keyword1">GO</span><br><br>
+		<span class="comment">--SELECT * FROM [import].[PoundDogs]</span><br>
+		<span class="comment">--DROP TABLE [import].[PoundDogs]</span><br>
+		<span class="keyword1">CREATE TABLE</span> [import].[PoundDogs]<br>(</br>
+		<span class="comment">--Administrative Columns</span><br>
+		<span class="normal">[PoundDogsID]</span> <span class="keyword1">INT IDENTITY</span><span class="keyword3"> NOT NULL</span> <br>
+		<span class="normal">,[FirstInserted]</span> <span class="keyword1">DATETIME2</span> <span class="keyword3"> NOT NULL</span> <span class="keyword1"> CONSTRAINT </span><span class="normal">DFT_PoundDogs_FirstInserted</span><span class="keyword1"> DEFAULT</span> <span class="keyword2">GETDATE</span> <span class="keyword3">()</span>  <br>
+		<span class="comment">--User Required Columns</span><br>
+		<span class="normal">,[DogChipNo]</span> <span class="keyword1">INT</span> <span class="keyword3"> NOT NULL </span> <span class="keyword1"> CONSTRAINT </span><span class="normal"> PK_PoundDogs</span><span class="keyword1"> PRIMARY KEY CLUSTERED</span> <br>
+		<span class="normal">,[DogName]</span> <span class="keyword1">VARCHAR</span><span class="keyword3">(</span><span class="normal">25</span><span class="keyword3">) NOT NULL</span> <br>
+		<span class="normal">,[DogBreed]</span> <span class="keyword1">VARCHAR</span><span class="keyword3">(</span><span class="normal">30</span><span class="keyword3">) NOT NULL</span> <br>
+		<span class="normal">,[DogColour]</span> <span class="keyword1">VARCHAR</span><span class="keyword3">(</span><span class="normal">20</span><span class="keyword3">) NOT NULL</span> <br>
+		<span class="normal">,[DogAgeYears]</span> <span class="keyword1"> INT </span><span class="keyword3"> NULL</span> <br>
+		<span class="normal">,[DateArrived]</span> <span class="keyword1"> DATE </span><span class="keyword3"> NULL</span> <br>
+		<span class="normal">,[TimeArrived]</span> <span class="keyword1"> DATE </span><span class="keyword3"> NULL</span> <br><span class="normal"> );</span> 
+	</div>
+	<h3>The example adds some handy administrative columns at the start...</h3>
+	<ul>
+			<li> The ID column with the identity property adds 
+			an incrementing integer to the table, handy for seeing the order rows were inserted. </li>
+			<li> The first inserted column with the default constraint ensures that a date and time is added 
+			to the row when it is inserted.  </li>
+	</ul>
+	<h3>The example also shows the addition of a primary key column...</h3>
+	<ul>
+			<li>The primary key column cannot have any duplicates. This is why chip number is used.</li>
+			<li>The primary key column is how the data is primarily stored, acting as a pointer to each row in the table.</li>
+			<li>Having an integer as a primary key is good practice as it will result in smaller indexes making 
+			data retrieval more effective.</li>
+	</ul>
+	<h3>There are two handy commented out bits of script at the start...</h3>
+	<ul>
+			<li>The first is to select all columns from the table so you can check your table once created.</li>
+			<li>The second is to drop the table in case you made a mistake in its creation.</li>
+			<li>This shows that comments are good for having readily available code as well as notes.</li>
+	</ul>
+	<p>The rest of the columns will hold the data we want to store in the table.</p>
+	<p>Inserting Data</p>
+	</body>
+</html>
